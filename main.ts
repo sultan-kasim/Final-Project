@@ -5,7 +5,6 @@
  * This program moves a servo when something is within 10cm of a sonar
 */
 
-
 // variables
 const servoNumber1 = robotbit.Servos.S1
 let distanceToObject = 0
@@ -14,9 +13,6 @@ let servoMoved = false
 // setup
 basic.clearScreen()
 basic.showIcon(IconNames.Happy)
-
-
-// check distance
 
 // continuously check distance
 basic.forever(function () {
