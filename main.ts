@@ -31,12 +31,13 @@ basic.forever(function () {
     if (distanceToObject > 0) {
 
         // If object is close and servo has not moved yet
-        if (distanceToObject < 30) {
+        if (distanceToObject < 10) {
             if (servoMoved == false) {
                 robotbit.Servo(servoNumber1, 150)
                 basic.showIcon(IconNames.No)
-                servoMoved = true
-                // Keep lid open for 3 seconds
+                servoMoved = true 
+                basic.pause(800)
+                // keep lid open for 3 seconds
                 basic.pause(3000)
             }
         } else {
@@ -45,9 +46,8 @@ basic.forever(function () {
                 robotbit.Servo(servoNumber1, 0)
                 basic.showIcon(IconNames.Happy)
                 servoMoved = false
-                // pause to let the lid close fully
-                basic.pause(1000)
-                // restart the whole micro:bit 
+                basic.pause(800)
+                // restart the whole micro:bit immediately
                 control.reset()
             }
         }
