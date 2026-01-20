@@ -31,7 +31,7 @@ basic.forever(function () {
     if (distanceToObject > 0) {
 
         // If object is close and servo has not moved yet
-        if (distanceToObject < 10) {
+        if (distanceToObject < 30) {
             if (servoMoved == false) {
                 robotbit.Servo(servoNumber1, 150)
                 basic.showIcon(IconNames.No)
