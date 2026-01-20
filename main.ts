@@ -15,6 +15,9 @@ let servoMoved = false
 basic.clearScreen()
 basic.showIcon(IconNames.Happy)
 
+
+// check distance
+
 // continuously check distance
 basic.forever(function () {
 
@@ -33,6 +36,8 @@ basic.forever(function () {
                 robotbit.Servo(servoNumber1, 150)
                 basic.showIcon(IconNames.No)
                 servoMoved = true
+                // Keep lid open for 3 seconds
+                basic.pause(3000)
             }
         } else {
             // reset servo when object moves away
@@ -40,9 +45,14 @@ basic.forever(function () {
                 robotbit.Servo(servoNumber1, 0)
                 basic.showIcon(IconNames.Happy)
                 servoMoved = false
+                // pause to let the lid close fully
+                basic.pause(1000)
+                // restart the whole micro:bit 
+                control.reset()
             }
         }
     }
 
-    basic.pause(1000)
+    // pause
+    basic.pause(100)
 })
